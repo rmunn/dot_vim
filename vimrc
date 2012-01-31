@@ -36,6 +36,7 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Rykka/ColorV'
 Bundle 'nanotech/jellybeans.vim'
+Bundle 'tomtom/quickfixsigns_vim'
 " Commands
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-surround'
@@ -76,6 +77,7 @@ Bundle 'nelstrom/vim-textobj-rubyblock'
 " Libraries
 Bundle 'L9'
 Bundle 'tpope/vim-repeat'
+Bundle 'tomtom/tlib_vim'
 
 filetype plugin indent on  " Automatically detect file types. (must turn on after Vundle)
 
@@ -219,6 +221,10 @@ vmap K k
 imap <C-l> <C-x><C-l>
 
 " Easier Scrolling (think j/k with left hand)
+" All variations are mapped for now until I get used to one
+" C/M/D + d (page up)
+" C/M/D + f (page down)
+nmap <C-d> <C-b>
 if has("gui_macvim")
   nmap <D-f> <C-f>
   nmap <D-d> <C-b>
