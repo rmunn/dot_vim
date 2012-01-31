@@ -187,6 +187,7 @@ set wildignore+=*.o,*.obj,*.exe,*.so,*.dll,*.pyc,.svn,.hg,.bzr,.git,.sass-cache
 " ---------------
 set showmatch  " Show matching brackets.
 set matchtime=2 " How many tenths of a second to blink
+set listchars=tab:»\ ,eol:¬,trail:· " » is U+00BB, · is U+00B7, ¬ is U+00AC
 
 " ---------------
 " Sounds
