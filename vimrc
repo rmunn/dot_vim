@@ -161,7 +161,8 @@ set formatoptions=crql
 " ---------------
 " Text Format
 " ---------------
-set tabstop=4
+set tabstop=8
+set softtabstop=4
 set backspace=2 " Delete everything with backspace
 set shiftwidth=4  " Tabs under smart indent
 set cindent
