@@ -268,6 +268,11 @@ nmap <silent> <leader>sv :vsplit<CR>
 nmap <silent> <leader>hs :split<CR>
 nmap <silent> <leader>vs :vsplit<CR>
 nmap <silent> <leader>sc :close<CR>
+" Split and edit (idea from http://vimcasts.org/e/14)
+nmap <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
+nmap <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
+nmap <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
+nmap <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 " ----------------------------------------
 " Auto Commands
