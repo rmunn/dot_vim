@@ -515,7 +515,7 @@ ruby << EOF
         `start cmd /c chrome #{url}`
         VIM::message("Opened #{url}")
       else
-        `open #{url}`
+        `firefox #{url}`
         VIM::message("Opened #{url}")
       end
     else
