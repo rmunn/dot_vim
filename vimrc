@@ -36,6 +36,7 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Rykka/ColorV'
 Bundle 'nanotech/jellybeans.vim'
+Bundle 'trapd00r/neverland-vim-theme'
 Bundle 'tomtom/quickfixsigns_vim'
 " Commands
 Bundle 'scrooloose/nerdcommenter'
