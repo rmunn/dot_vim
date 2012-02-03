@@ -134,7 +134,7 @@ endif
 " Color
 " ---------------
 set background=dark
-colorscheme jellybeans
+colorscheme desert-warm-256
 
 " ---------------
 " Backups
