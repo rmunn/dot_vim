@@ -39,6 +39,7 @@ Bundle 'tomtom/quickfixsigns_vim'
 " Colorschemes
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'trapd00r/neverland-vim-theme'
+Bundle 'nelstrom/vim-blackboard'
 " Commands
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-surround'
