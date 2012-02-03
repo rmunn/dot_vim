@@ -135,7 +135,8 @@ endif
 " Color
 " ---------------
 set background=dark
-colorscheme desert-warm-256
+let g:zenburn_high_Contrast=1
+colorscheme zenburn
 
 " ---------------
 " Backups
