@@ -30,14 +30,15 @@ Bundle 'christoomey/vim-space'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'mutewinter/LustyJuggler'
 Bundle 'kien/ctrlp.vim'
-" UI Additions
+" UI Additions (non-colorscheme)
 Bundle 'mutewinter/vim-indent-guides'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Rykka/ColorV'
+Bundle 'tomtom/quickfixsigns_vim'
+" Colorschemes
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'trapd00r/neverland-vim-theme'
-Bundle 'tomtom/quickfixsigns_vim'
 " Commands
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-surround'
