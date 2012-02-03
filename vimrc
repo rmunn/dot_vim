@@ -36,6 +36,7 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Rykka/ColorV'
 Bundle 'tomtom/quickfixsigns_vim'
+Bundle 'vim-scripts/quilt'
 " Colorschemes
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'trapd00r/neverland-vim-theme'
