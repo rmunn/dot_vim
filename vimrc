@@ -42,6 +42,7 @@ Bundle 'nanotech/jellybeans.vim'
 Bundle 'trapd00r/neverland-vim-theme'
 Bundle 'nelstrom/vim-blackboard'
 Bundle 'jnurmine/Zenburn'
+Bundle 'rainux/vim-desert-warm-256'
 " Commands
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-surround'
