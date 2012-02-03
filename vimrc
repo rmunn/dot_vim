@@ -41,6 +41,7 @@ Bundle 'vim-scripts/quilt'
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'trapd00r/neverland-vim-theme'
 Bundle 'nelstrom/vim-blackboard'
+Bundle 'jnurmine/Zenburn'
 " Commands
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-surround'
