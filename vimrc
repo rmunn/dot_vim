@@ -125,6 +125,9 @@ elseif has('gui_macvim')
 
   " Use option (alt) as meta key.
   set macmeta
+elseif has('gui_gtk')
+  " X11
+  set guifont=Inconsolata\ 12
 endif
 
 " ----------------------------------------
