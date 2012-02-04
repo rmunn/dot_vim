@@ -392,7 +392,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 " ---------------
 " Indent Guides
 " ---------------
-let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_enable_on_vim_startup=0
 
 " ---------------
 " Session
