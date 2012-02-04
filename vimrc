@@ -286,6 +286,8 @@ nmap <leader>ew :e %%
 nmap <leader>es :sp %%
 nmap <leader>ev :vsp %%
 nmap <leader>et :tabe %%
+" Toggle visible tabs, trailing spaces, eol chars
+nmap <leader>ls :set list!<CR>
 
 " ----------------------------------------
 " Auto Commands
