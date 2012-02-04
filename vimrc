@@ -306,6 +306,9 @@ if has("autocmd")
         \ if line("'\"") > 1 && line ("'\"") <= line("$") |
         \   exe "normal! g`\"" |
         \ endif
+
+  " Auto-reload Vim config immediately after saving
+  autocmd BufWritePost vimrc source %
 endif
 " ----------------------------------------
 " Plugin Configuration
