@@ -434,6 +434,9 @@ nmap <Leader>gd :Gdiff<CR>
 " Exit a diff by closing the diff window
 nmap <Leader>gx :wincmd h<CR>:q<CR>
 
+" XML
+nmap <Leader>xp :%! ~/.local/bin/xmlpp.pl %<CR>
+
 " ---------------
 " Zoomwin
 " ---------------
