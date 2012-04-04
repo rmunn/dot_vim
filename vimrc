@@ -74,11 +74,15 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'leshill/vim-json'
 Bundle 'itspriddle/vim-jquery'
-"   Misc
+"   Other Languages
 Bundle 'msanders/cocoa.vim'
 Bundle 'mutewinter/taskpaper.vim'
 Bundle 'mutewinter/nginx.vim'
 Bundle 'timcharper/textile.vim'
+Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
+Bundle 'acustodioo/vim-tmux'
+Bundle 'hallison/vim-markdown'
+Bundle 'xhtml.vim--Grny'
 " MatchIt
 Bundle 'matchit.zip'
 Bundle 'kana/vim-textobj-user'
@@ -193,7 +197,7 @@ set ignorecase " Case insensitive search
 set smartcase " Non-case sensitive search
 set incsearch
 set hlsearch
-set wildignore+=*.o,*.obj,*.exe,*.so,*.dll,*.pyc,.svn,.hg,.bzr,.git,.sass-cache
+set wildignore+=*.o,*.obj,*.exe,*.so,*.dll,*.pyc,.svn,.hg,.bzr,.git,.sass-cache,*.class
 
 " ---------------
 " Visual
@@ -501,6 +505,12 @@ if has('win32') || has('win64')
 elseif has('gui_macvim')
   let g:Powerline_symbols = 'fancy'
 endif
+
+" ---------------
+" jellybeans.vim colorscheme tweaks
+" ---------------
+" Make cssAttrs (center, block, etc.) the same color as units
+hi! link cssAttr Constant
 
 " ---------------
 " Vundle
