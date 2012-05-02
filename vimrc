@@ -155,12 +155,15 @@ set directory=~/.vim/tmp
 " ---------------
 " UI
 " ---------------
-set ruler  " Ruler on
-set nu  " Line numbers on
-set nowrap  " Line wrapping off
-set laststatus=2  " Always show the statusline
-set cmdheight=2
+set ruler          " Ruler on
+set nu             " Line numbers on
+set nowrap         " Line wrapping off
+set laststatus=2   " Always show the statusline
+set cmdheight=2    " Make the command area two lines high
 set encoding=utf-8
+if exists('+colorcolumn')
+  set colorcolumn=80 " Color the 80th column differently
+endif
 
 " ---------------
 " Behaviors
@@ -176,6 +179,7 @@ set autowrite          " Writes on make/shell commands
 set timeoutlen=350     " Time to wait for a command (after leader for example)
 set foldlevelstart=99  " Remove folds
 set formatoptions=crql
+set iskeyword+=$,@     " Add extra characters that are valid parts of variables
 
 " ---------------
 " Text Format
@@ -194,7 +198,7 @@ set backspace=2
 " Searching
 " ---------------
 set ignorecase " Case insensitive search
-set smartcase " Non-case sensitive search
+set smartcase  " Non-case sensitive search
 set incsearch
 set hlsearch
 set wildignore+=*.o,*.obj,*.exe,*.so,*.dll,*.pyc,.svn,.hg,.bzr,.git,.sass-cache,*.class
@@ -202,7 +206,7 @@ set wildignore+=*.o,*.obj,*.exe,*.so,*.dll,*.pyc,.svn,.hg,.bzr,.git,.sass-cache,
 " ---------------
 " Visual
 " ---------------
-set showmatch  " Show matching brackets.
+set showmatch   " Show matching brackets.
 set matchtime=2 " How many tenths of a second to blink
 set listchars=tab:»\ ,eol:¬,trail:· " » is U+00BB, · is U+00B7, ¬ is U+00AC
 
@@ -424,6 +428,10 @@ nmap <Leader>t, :Tabularize /,\zs<CR>
 vmap <Leader>t, :Tabularize /,\zs<CR>
 nmap <Leader>t> :Tabularize /=>\zs<CR>
 vmap <Leader>t> :Tabularize /=>\zs<CR>
+nmap <Leader>t- :Tabularize /-<CR>
+vmap <Leader>t- :Tabularize /-<CR>
+nmap <Leader>t" :Tabularize /"<CR>
+vmap <Leader>t" :Tabularize /"<CR>
 
 " ---------------
 " Fugitive
@@ -452,49 +460,57 @@ nmap <silent> <leader>wo :ZoomWin<CR>
 " ---------------
 " Ensure Ctrl-P isn't bound by default
 let g:ctrlp_map = ''
+
+" Ensure max height isn't too large. (for performance)
+let g:ctrlp_max_height = 10
+let g:CommandTMaxHeight = 10
+
+" Dynamically use Command T or ctrlp.vim based on availability of Ruby.
+" We do this because Command T is much faster than ctrlp.vim.
 if has('ruby')
-  " We've got Ruby, use Command T
+  " --------
+  " Use Command T since we've got Ruby
+  " --------
 
   " Conditional Mappings
-  if has("gui_macvim")
-    nnoremap <silent><D-t> :CommandT<CR>
+  if has('unix')
+    nnoremap <silent><C-t> :CommandT<CR>
   else
     nnoremap <silent><M-t> :CommandT<CR>
   endif
 
   " Leader Commands
   nnoremap <leader>t :CommandT<CR>
-  nnoremap <leader>u :CommandT %%<CR>
 else
-  " Fallback on ctrlp.vim if Ruby for Command T not available
+  " --------
+  " Use ctrlp.vim since we don't have Ruby
+  " --------
 
   " Conditional Mappings
-  if has("gui_macvim")
-    let g:ctrlp_map = '<D-t>'
+  if has('unix')
+    let g:ctrlp_map = '<C-t>'
   else
     let g:ctrlp_map = '<M-t>'
   endif
 
   " Leader Commands
   nnoremap <leader>t :CtrlPRoot<CR>
+  nnoremap <leader>b :CtrlPBuffer<CR>
 endif
 
-" Ensure max height isn't too large. (for performance)
-let g:ctrlp_max_height = 10
-let g:CommandTMaxHeight = 10
-
-" Mapping from ctrlp we always use
-if has('gui_macvim')
-  nnoremap <silent><D-u> :CtrlPCurFile<CR>
-  nnoremap <silent><D-y> :CtrlPMRUFiles<CR>
+" Always use CtrlP for most recently used files and relative dierctory.
+if has('unix')
+  nnoremap <silent><C-u> :CtrlPCurFile<CR>
+  nnoremap <silent><C-m> :CtrlPMRUFiles<CR>
 else
   nnoremap <silent><M-u> :CtrlPCurFile<CR>
-  nnoremap <silent><M-y> :CtrlPMRUFiles<CR>
-end
+  nnoremap <silent><M-m> :CtrlPMRUFiles<CR>
+endif
 
 " Also map leader commands
 nnoremap <leader>u :CtrlPCurFile<CR>
-nnoremap <leader>y :CtrlPMRUFiles<CR>
+nnoremap <leader>m :CtrlPMRUFiles<CR>
+nnoremap <leader>b :CtrlPBuffer<CR>
 
 " ---------------
 " Powerline
@@ -505,6 +521,7 @@ if has('win32') || has('win64')
 elseif has('gui_macvim')
   let g:Powerline_symbols = 'fancy'
 endif
+call Pl#Theme#InsertSegment('ws_marker', 'after', 'lineinfo')
 
 " ---------------
 " jellybeans.vim colorscheme tweaks
@@ -531,7 +548,7 @@ if has('ruby')
 ruby << EOF
   require 'open-uri'
   require 'openssl'
-  
+
   def extract_url(url)
     re = %r{(?i)\b((?:[a-z][\w-]+:(?:/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]\{\};:'".,<>?«»“”‘’]))}
 
