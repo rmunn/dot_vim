@@ -74,6 +74,8 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'leshill/vim-json'
 Bundle 'itspriddle/vim-jquery'
+"   Clojure
+Bundle 'VimClojure'
 "   Other Languages
 Bundle 'msanders/cocoa.vim'
 Bundle 'mutewinter/taskpaper.vim'
@@ -445,6 +447,17 @@ nmap <Leader>gu :Git pull<CR>
 nmap <Leader>gd :Gdiff<CR>
 " Exit a diff by closing the diff window
 nmap <Leader>gx :wincmd h<CR>:q<CR>
+
+" ---------------
+" VimClojure
+" ---------------
+let vimclojure#FuzzyIndent=1
+let vimclojure#HighlightBuiltins=1
+let vimclojure#HighlightContrib=1
+let vimclojure#DynamicHighlighting=1
+let vimclojure#ParenRainbow=1
+let vimclojure#WantNailgun = 1
+let vimclojure#NailgunClient = $HOME . "/.local/bin/ng"
 
 " XML
 nmap <Leader>xp :%! ~/.local/bin/xmlpp.pl %<CR>
