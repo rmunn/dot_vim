@@ -458,6 +458,7 @@ let vimclojure#DynamicHighlighting=1
 let vimclojure#ParenRainbow=1
 let vimclojure#WantNailgun = 1
 let vimclojure#NailgunClient = $HOME . "/.local/bin/ng"
+let vimclojure#SplitPos = "right"
 
 " XML
 nmap <Leader>xp :%! ~/.local/bin/xmlpp.pl %<CR>
