@@ -460,6 +460,11 @@ let vimclojure#WantNailgun = 1
 let vimclojure#NailgunClient = $HOME . "/.local/bin/ng"
 let vimclojure#SplitPos = "right"
 
+" ---------------
+" DelimitMate
+" ---------------
+let delimitMate_excluded_ft = "clojure"
+
 " XML
 nmap <Leader>xp :%! ~/.local/bin/xmlpp.pl %<CR>
 
